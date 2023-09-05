@@ -1,16 +1,14 @@
 ![solos](https://github.com/SolosV1/solos-rentals/assets/108097907/8e56354b-9ee1-4566-83b1-04619b71fe43)
 
-Other FiveM Resources | https://solos.tebex.io/ 
+**Other FiveM Resources** | https://solos.tebex.io/ 
 
-Discord               | https://discord.gg/UNbCJUrncS
+**Discord**               | https://discord.gg/UNbCJUrncS
 
 # Vehicle Rental 
 
-Requires: 
-ox_lib
-ox_inventory 
+**Requires:** ox_lib | ox_inventory 
 
-Frameworks: QB | ESX
+**Frameworks:** QB | ESX
 
 # Preview 
 
