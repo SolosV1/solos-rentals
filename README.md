@@ -12,6 +12,7 @@
 **Requires:** ox_lib | ox_inventory 
 
 **Frameworks:** QB | ESX
+**Targets:** qb-target | ox_target
 
 # Preview
 
