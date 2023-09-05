@@ -1,5 +1,4 @@
-![solos](https://github.com/SolosV1/solos-rentals/assets/108097907/aa66bea5-35bd-492f-8e4b-5994cc957efe)
-
+![solos](https://github.com/SolosV1/solos-rentals/assets/108097907/8e56354b-9ee1-4566-83b1-04619b71fe43)
 
 For more FiveM Resources 
 
