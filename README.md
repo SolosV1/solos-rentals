@@ -15,7 +15,7 @@
 
 # Preview 
 
-![https://youtu.be/NMyKnpPYqCA]
+![preview](https://youtu.be/NMyKnpPYqCA)
 
 # Item:
 
