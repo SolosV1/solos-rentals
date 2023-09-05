@@ -6,7 +6,7 @@
 
 # Vehicle Rental 
 - Customize vehicle and pricing options
-- Add as many locations as you'd like (Each lcoation can have different vehicles)
+- Add as many locations as you'd like (Each location can have different vehicles)
 - Players recieve rental papers with meta data displaying renter's name, vehicle, and licence plate
 
 **Requires:** ox_lib | ox_inventory 
