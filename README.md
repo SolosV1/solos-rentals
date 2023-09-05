@@ -17,6 +17,10 @@
 
 https://youtu.be/NMyKnpPYqCA 
 
+![FiveM_b2699_GTAProcess_RixfU7t61q](https://github.com/SolosV1/solos-rentals/assets/108097907/579328cf-332a-492d-a111-81c7497b0372)
+![FiveM_b2699_GTAProcess_lVuAgry0md](https://github.com/SolosV1/solos-rentals/assets/108097907/497e9bf7-0522-4d5e-93a9-92ff466c6747)
+
+
 # Item:
 
 /ox_inventory > /data > items.lua 
