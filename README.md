@@ -25,8 +25,7 @@ https://youtu.be/NMyKnpPYqCA
 
 # Installation:
 
-1. add `solos-rentals-main` to your resources folder
-    a. Make sure folder is UNZIPPED!
+1. add `solos-rentals-main` to your resources folder | Make sure folder is UNZIPPED!
 
 2. `ensure solos-rentals` in server.cfg if necessary
 
