@@ -1,4 +1,4 @@
-[Embed Title](https://i.imgur.com/jQ5hOSd.png "@embed")
+[https://i.imgur.com/jQ5hOSd.png]
 
 For more FiveM Resources 
 
