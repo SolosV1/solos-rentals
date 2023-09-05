@@ -127,7 +127,9 @@ RegisterNetEvent('solos-rentals:client:rentVehicle', function(k)
                     image = details.image,
                     description = '$' .. details.price,
                     onSelect = function()
+                        local moneytype = 'bank'
                         if BankAmount() < details.price then 
+                            moneytype = 'cash'
                             if CashAmount() < details.price then 
                                 lib.notify({
                                     id = 'not_enough_money',
@@ -136,10 +138,12 @@ RegisterNetEvent('solos-rentals:client:rentVehicle', function(k)
                                     icon = 'ban',
                                     iconColor = '#C53030'
                                 })
+                                moneytype = 'bank'
                                 return
                             end
                         end
                         TriggerEvent('solos-rentals:client:SpawnVehicle', vehicle, details.price)
+                        TriggerServerEvent('solos-rentals:server:removemoney', moneytype, details.price)
                     end
                 })
             end

@@ -27,3 +27,15 @@ RegisterNetEvent('solos-rentals:server:RentVehicle', function(vehicle, price, pl
     )
 
 end)
+
+RegisterNetEvent('solos-rentals:server:removemoney', function(moneytype, amount)
+   local src = source 
+   if QBCore then 
+        local Player = QBCore.Functions.GetPlayer(src)
+        Player.Functions.RemoveMoney(moneytype, amount)
+    elseif ESX then
+        local Player = ESX.GetPlayerFromId(src)
+        Player.removeMoney(moneytype, amount)
+    end
+
+end)
