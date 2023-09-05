@@ -27,7 +27,7 @@ https://youtu.be/NMyKnpPYqCA
 
 /ox_inventory > /data > items.lua 
 
-** Add rentalpapers.png to /ox_inventory/web/images/ **
+**Add rentalpapers.png to /ox_inventory/web/images/**
 
 ```lua
 ['rentalpapers'] = {
