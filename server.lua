@@ -19,7 +19,7 @@ local function PlayerName(src)
     end
 end
 
-RegisterNetEvent('solos-rentals:server:RentVehicle', function(vehicle, price, plate)
+RegisterNetEvent('solos-rentals:server:RentVehicle', function(vehicle, plate)
     local src = source
     local player_name = PlayerName(src)
     exports.ox_inventory:AddItem(src, 'rentalpapers', 1, 
@@ -28,14 +28,48 @@ RegisterNetEvent('solos-rentals:server:RentVehicle', function(vehicle, price, pl
 
 end)
 
-RegisterNetEvent('solos-rentals:server:removemoney', function(moneytype, amount)
-   local src = source 
-   if QBCore then 
+RegisterNetEvent('solos-rentals:server:MoneyAmounts', function(vehiclename, price)
+    local src = source
+    local moneytype = 'bank'
+    local price = tonumber(price)
+    local bank 
+    local cash
+    if QBCore then 
         local Player = QBCore.Functions.GetPlayer(src)
-        Player.Functions.RemoveMoney(moneytype, amount)
-    elseif ESX then
+        bank = Player.PlayerData.money.bank
+        cash = Player.PlayerData.money.cash
+    elseif ESX then 
         local Player = ESX.GetPlayerFromId(src)
-        Player.removeMoney(moneytype, amount)
+        bank = Player.getAccount('bank').money
+        cash = Player.getAccount('money').money
     end
 
+    if bank < price then 
+        moneytype = 'cash'
+        if cash < price then 
+            TriggerClientEvent('ox_lib:notify', src, {
+                id = 'not_enough_money',
+                description = 'You don\'t have enough money to rent this vehicle.',
+                position = 'center-right',
+                icon = 'ban',
+                iconColor = '#C53030'
+            })
+            return 
+        end    
+    end
+
+    if QBCore then 
+        local Player = QBCore.Functions.GetPlayer(src)
+        Player.Functions.RemoveMoney(moneytype, price)
+    elseif ESX then
+        local Player = ESX.GetPlayerFromId(src)
+        if moneytype == 'cash' then
+            Player.removeMoney(price)
+        elseif moneytype == 'bank' then
+            Player.removeAccountMoney('bank', price)
+        end
+    end
+
+    TriggerEvent('solos-rentals:server:removemoney', src, moneytype, price)
+    TriggerClientEvent('solos-rentals:client:SpawnVehicle', src, vehiclename)
 end)

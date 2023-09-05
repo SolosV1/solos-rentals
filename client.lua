@@ -94,27 +94,6 @@ Citizen.CreateThread(function()
         
 end)
 
-function BankAmount()
-    if QBCore then 
-        local Player = QBCore.Functions.GetPlayerData()
-        return Player.money.bank
-    elseif ESX then
-        local Player = ESX.PlayerData.accounts
-        print(Player[1].money)
-        return Player[1].money
-    end
-end
-
-function CashAmount()
-    if QBCore then 
-        local Player = QBCore.Functions.GetPlayerData()
-        return Player.money.cash
-    elseif ESX then
-        local Player = ESX.PlayerData.accounts
-        return Player[3].money
-    end
-end
-
 RegisterNetEvent('solos-rentals:client:rentVehicle', function(k)
 
     local menu_options = {}
@@ -127,23 +106,7 @@ RegisterNetEvent('solos-rentals:client:rentVehicle', function(k)
                     image = details.image,
                     description = '$' .. details.price,
                     onSelect = function()
-                        local moneytype = 'bank'
-                        if BankAmount() < details.price then 
-                            moneytype = 'cash'
-                            if CashAmount() < details.price then 
-                                lib.notify({
-                                    id = 'not_enough_money',
-                                    description = 'You don\'t have enough money to rent this vehicle.',
-                                    position = 'center-right',
-                                    icon = 'ban',
-                                    iconColor = '#C53030'
-                                })
-                                moneytype = 'bank'
-                                return
-                            end
-                        end
-                        TriggerEvent('solos-rentals:client:SpawnVehicle', vehicle, details.price)
-                        TriggerServerEvent('solos-rentals:server:removemoney', moneytype, details.price)
+                        TriggerServerEvent('solos-rentals:server:MoneyAmounts', vehicle, details.price)
                     end
                 })
             end
@@ -159,21 +122,19 @@ RegisterNetEvent('solos-rentals:client:rentVehicle', function(k)
     lib.showContext('vehicle_rental')
 end)
 
-RegisterNetEvent('solos-rentals:client:SpawnVehicle', function(vehiclename, price)
+RegisterNetEvent('solos-rentals:client:SpawnVehicle', function(vehiclename)
     local player = PlayerPedId()
     local vehicle = GetHashKey(vehiclename)
-    print(vehicle)
     RequestModel(vehicle)
     while not HasModelLoaded(vehicle) do
         Wait(10)
     end
     local rental = CreateVehicle(vehicle, config.locations['legion'].vehiclespawncoords.x, config.locations['legion'].vehiclespawncoords.y, config.locations['legion'].vehiclespawncoords.z, config.locations['legion'].vehiclespawncoords.w, true, false)
     local plate = GetVehicleNumberPlateText(rental)
-    print(plate)
     SetVehicleOnGroundProperly(rental)
     TaskWarpPedIntoVehicle(player, rental, -1) 
     SetVehicleEngineOn(vehicle, true, true)
-    TriggerServerEvent('solos-rentals:server:RentVehicle', vehiclename, price, plate)
+    TriggerServerEvent('solos-rentals:server:RentVehicle', vehiclename, plate)
 
     -- give keys 
     if QBCore then 
