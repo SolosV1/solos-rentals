@@ -1,8 +1,8 @@
 ![solos](https://github.com/SolosV1/solos-rentals/assets/108097907/8e56354b-9ee1-4566-83b1-04619b71fe43)
 
-For more FiveM Resources 
+Other FiveM Resources | https://solos.tebex.io/ 
 
-https://solos.tebex.io/ 
+Discord               | https://discord.gg/UNbCJUrncS
 
 # Vehicle Rental 
 
