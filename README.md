@@ -29,7 +29,7 @@ https://youtu.be/NMyKnpPYqCA
 
 2. `ensure solos-rentals` in server.cfg if necessary
 
-3. Add `Rental Papers` item to inventory
+3. Add `Rental Papers` item to inventory:
 
 **Add rentalpapers.png to /ox_inventory/web/images/**
 
