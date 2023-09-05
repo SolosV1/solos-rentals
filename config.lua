@@ -2,8 +2,8 @@ config = {}
 
 -- target resource (only one of these can be true)
 -------------------------------------------------------
-config.qbtarget = false  
-config.oxtarget = true  
+config.qbtarget = true  
+config.oxtarget = false  
 -------------------------------------------------------
 
 
@@ -29,23 +29,23 @@ config.locations = {
         vehicles = {
             ['asea']        = {     -- vehicle model name
                 price = 250,        -- ['vehicle'] = price
-                image = false,      -- image for menu, false for no image
+                image = 'https://i.imgur.com/gpw2CNy.png',      -- image for menu, false for no image
             },
             ['sentinel']    = {
                 price = 500, 
-                image = false,
+                image = 'https://i.imgur.com/LheKlzT.png',
             },
             ['bison']       = {
                 price = 1000, 
-                image = 'https://i.imgur.com/6dzUGIP.png',
+                image = 'https://i.imgur.com/uOvGpSy.png',
             },
             ['patriot']     = {
                 price = 1500, 
-                image = false,
+                image = 'https://i.imgur.com/LsqIPvJ.png',
             },
             ['stretch']     = {
-                price = 20000000, 
-                image = false,
+                price = 2000, 
+                image = 'https://i.imgur.com/pZeUmzV.png',
             },
 
         },

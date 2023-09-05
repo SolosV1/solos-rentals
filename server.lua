@@ -69,7 +69,12 @@ RegisterNetEvent('solos-rentals:server:MoneyAmounts', function(vehiclename, pric
             Player.removeAccountMoney('bank', price)
         end
     end
-
-    TriggerEvent('solos-rentals:server:removemoney', src, moneytype, price)
+    TriggerClientEvent('ox_lib:notify', src, {
+        id = 'rental_success',
+        description = vehiclename:gsub("^%l", string.upper)..' rented for $'..price..'.',
+        position = 'center-right',
+        icon = 'car',
+        iconColor = 'white'
+    })
     TriggerClientEvent('solos-rentals:client:SpawnVehicle', src, vehiclename)
 end)
