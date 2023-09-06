@@ -2,7 +2,7 @@
 
 **Other FiveM Resources** | https://solos.tebex.io/ 
 
-**Discord**               | https://discord.gg/UNbCJUrncS
+**Join Discord for support**               | https://discord.gg/UNbCJUrncS
 
 # Vehicle Rental 
 - Customize vehicle and pricing options
