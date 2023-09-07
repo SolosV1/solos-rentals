@@ -28,7 +28,7 @@ RegisterNetEvent('solos-rentals:server:RentVehicle', function(vehicle, plate)
 
 end)
 
-RegisterNetEvent('solos-rentals:server:MoneyAmounts', function(vehiclename, price)
+RegisterNetEvent('solos-rentals:server:MoneyAmounts', function(vehiclename, price, location)
     local src = source
     local moneytype = 'bank'
     local price = tonumber(price)
@@ -76,5 +76,5 @@ RegisterNetEvent('solos-rentals:server:MoneyAmounts', function(vehiclename, pric
         icon = 'car',
         iconColor = 'white'
     })
-    TriggerClientEvent('solos-rentals:client:SpawnVehicle', src, vehiclename)
+    TriggerClientEvent('solos-rentals:client:SpawnVehicle', src, vehiclename, location)
 end)

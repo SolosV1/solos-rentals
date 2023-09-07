@@ -106,7 +106,7 @@ RegisterNetEvent('solos-rentals:client:rentVehicle', function(k)
                     image = details.image,
                     description = '$' .. details.price,
                     onSelect = function()
-                        TriggerServerEvent('solos-rentals:server:MoneyAmounts', vehicle, details.price)
+                        TriggerServerEvent('solos-rentals:server:MoneyAmounts', vehicle, details.price, location)
                     end
                 })
             end
@@ -122,14 +122,14 @@ RegisterNetEvent('solos-rentals:client:rentVehicle', function(k)
     lib.showContext('vehicle_rental')
 end)
 
-RegisterNetEvent('solos-rentals:client:SpawnVehicle', function(vehiclename)
+RegisterNetEvent('solos-rentals:client:SpawnVehicle', function(vehiclename, location)
     local player = PlayerPedId()
     local vehicle = GetHashKey(vehiclename)
     RequestModel(vehicle)
     while not HasModelLoaded(vehicle) do
         Wait(10)
     end
-    local rental = CreateVehicle(vehicle, config.locations['legion'].vehiclespawncoords.x, config.locations['legion'].vehiclespawncoords.y, config.locations['legion'].vehiclespawncoords.z, config.locations['legion'].vehiclespawncoords.w, true, false)
+    local rental = CreateVehicle(vehicle, config.locations[location].vehiclespawncoords.x, config.locations[location].vehiclespawncoords.y, config.locations[location].vehiclespawncoords.z, config.locations[location].vehiclespawncoords.w, true, false)
     local plate = GetVehicleNumberPlateText(rental)
     SetVehicleOnGroundProperly(rental)
     TaskWarpPedIntoVehicle(player, rental, -1) 
